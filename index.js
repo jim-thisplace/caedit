@@ -108,6 +108,11 @@ function drawWorld(options) {
 
 drawWorld({ world : world });
 
+function getRuleMatchResult() {
+    return 1;
+    //return (Math.random() > 0.4) | 0;
+}
+
 /**
  * @param {object} options
  * @param {number} options.x
@@ -130,7 +135,7 @@ function applyRule(options) {
         h         : w
     });
     var centroidIndex       = flattenedArrayRule.length >> 1;
-    var centroidResult      = flattenedArrayRule[centroidIndex];
+    //var centroidResult      = flattenedArrayRule[centroidIndex];
 
     var isMatch = true;
     for (var i = 0; i < flattenedArrayRule.length; i++) {
@@ -143,11 +148,11 @@ function applyRule(options) {
     }
 
     if (isMatch) {
-        options.toWorld[y][x] = 1; //centroidResult; //tweakable
+        options.toWorld[y][x] = getRuleMatchResult(); //1; //centroidResult; //tweakable
     }
 }
 
-var TWEAKABLE_THRESHOLD_FOR_DARKEN = 0.6;
+var TWEAKABLE_THRESHOLD_FOR_DARKEN = 0.7;
 
 function getRandom3x3Rule() {
     var rule = new Uint8Array(9);
@@ -195,7 +200,7 @@ function getRandomRules(n) {
     return ruleSet;
 }
 
-var TWEAKABLE_RULE_COUNT = 20;
+var TWEAKABLE_RULE_COUNT = 16;
 
 rules = getRandomRules(TWEAKABLE_RULE_COUNT);
 
