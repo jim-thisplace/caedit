@@ -1,0 +1,22 @@
+build-min:
+ - clean
+ - exec:mkdirBuild
+ - browserify
+ - sass
+ - cssmin
+ - uglify
+ - exec:copyAssetsToBuild
+ - htmlmin
+
+build:
+ - clean
+ - exec:mkdirBuild
+ - browserify
+ - sass
+ - exec:copyAssetsToBuild
+
+default:
+  - build
+  - express
+  - watch
+
