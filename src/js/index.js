@@ -1,3 +1,5 @@
+var util = require('./util');
+
 var interval;
 
 function go() {
@@ -155,7 +157,7 @@ function go() {
         }
     }
 
-    var TWEAKABLE_THRESHOLD_FOR_DARKEN = getRandomInt(2,8) / 10;
+    var TWEAKABLE_THRESHOLD_FOR_DARKEN = util.getRandomInt(2,8) / 10;
 
     function getRandom3x3Rule() {
         var rule = new Uint8Array(9);
@@ -203,7 +205,7 @@ function go() {
         return ruleSet;
     }
 
-    var TWEAKABLE_RULE_COUNT = getRandomInt(8, 16);
+    var TWEAKABLE_RULE_COUNT = util.getRandomInt(8, 16);
 
     rules = getRandomRules(TWEAKABLE_RULE_COUNT);
 
