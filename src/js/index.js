@@ -1,14 +1,5 @@
 var interval;
 
-/**
- * @param {number} min
- * @param {number} max
- * @returns {number}
- */
-function getRandomInt(min, max) {
-    return Math.round(Math.random() * (max - min)) + min;
-}
-
 function go() {
     var world;
     var newWorld;
